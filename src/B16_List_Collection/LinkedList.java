@@ -1,4 +1,4 @@
-package SomePackage;
+package B16_List_Collection;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -6,18 +6,64 @@ import java.util.List;
 import java.util.ListIterator;
 
 /**
- * Created by arch on 6/26/17.
+ * Created by arch on 7/4/17.
  */
-public class B16_Collection implements List {
+public class LinkedList<T> implements List{
 
+    private static final int MAX_CAPACITY = 2147483639;
+    private int DEF_CAPACITY = 25;
+
+    private int size = 0;
+    private Object[] data;
+
+    public LinkedList (int size){
+        this.size = size > 0 ? size: DEF_CAPACITY;
+        this.data = new Object[this.size];
+    }
+    public LinkedList (){
+        this.size = DEF_CAPACITY;
+        this.data = new Object[this.size];
+    }
 
     @Override
     public int size() {
-        return 0;
+        return this.size;
     }
 
     @Override
     public boolean isEmpty() {
+        return size == 0;
+    }
+
+    @Override
+    public Object get(int i) {
+        return this.data[i];
+    }
+
+    @Override
+    public Object set(int i, Object o) {
+        return null;
+    }
+
+    @Override
+    public void add(int i, Object o) {
+        this.data[i] = o;
+    }
+
+    @Override
+    public boolean add(Object o) {
+        this.data[size++] = o;
+        return true;
+    }
+
+    @Override
+    public Object remove(int i) {
+        this.data[i] = 0;
+        return null;
+    }
+
+    @Override
+    public boolean remove(Object o) {
         return false;
     }
 
@@ -37,16 +83,6 @@ public class B16_Collection implements List {
     }
 
     @Override
-    public boolean add(Object o) {
-        return false;
-    }
-
-    @Override
-    public boolean remove(Object o) {
-        return false;
-    }
-
-    @Override
     public boolean addAll(Collection collection) {
         return false;
     }
@@ -59,26 +95,6 @@ public class B16_Collection implements List {
     @Override
     public void clear() {
 
-    }
-
-    @Override
-    public Object get(int i) {
-        return null;
-    }
-
-    @Override
-    public Object set(int i, Object o) {
-        return null;
-    }
-
-    @Override
-    public void add(int i, Object o) {
-
-    }
-
-    @Override
-    public Object remove(int i) {
-        return null;
     }
 
     @Override
