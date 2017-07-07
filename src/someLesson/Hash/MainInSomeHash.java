@@ -18,6 +18,7 @@ public class MainInSomeHash {
         list.add(new Integer(1234));
         list.add(new Double(1234.12d));
         list.add(new Long(123));
+        list.add(new Object());
     }
 
     public static void getEl(LinkedList<? extends Number> list){
