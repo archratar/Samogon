@@ -28,10 +28,9 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
             this.current.data = t;
         }else{
             this.last.next = new Node<T>(t);
-            this.last.
         }
     }
-    @Overload
+
     public void add(Collection<? extends T> t){
         ;
     }
@@ -40,7 +39,7 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
     public void remove(T t){
         ;
     }
-    @Overload
+
     public boolean remove(String lastOrFirst){
 
         boolean isFirst = lastOrFirst.equals("first");
