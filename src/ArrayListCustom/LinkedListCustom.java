@@ -36,8 +36,8 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
     }
 
     @Override
-    public void remove(T t){
-        ;
+    public boolean remove(T t){
+        return false;
     }
 
     public boolean remove(String lastOrFirst){
@@ -48,8 +48,10 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
         if (isFirst || isLast){
             ;
         }else{
-            return false;
+            ;
         }
+
+        return false;
     }
 
     @Override
@@ -60,8 +62,8 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
     private static class Node<T>{
         private static int iterator;
         T data;
-        LinkedListCustom.Node<T> next;
         LinkedListCustom.Node<T> prev;
+        LinkedListCustom.Node<T> next;
 
         Node(T data){
             this.data = data;
