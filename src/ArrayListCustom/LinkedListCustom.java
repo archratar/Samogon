@@ -17,13 +17,13 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
     }
     LinkedListCustom(Collection<? extends T> t){
         this();
-        this.add();
+        this.add(t);
     }
 
     @Override
     public void add(T t){
         if(this.size == 0){
-            this.current = new LinkedListCustom.Node<T>(t);
+            this.current = new Node<T>(t);
             this.last = this.first = this.current;
             this.current.data = t;
         }else{
@@ -52,8 +52,6 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
             return false;
         }
     }
-
-
 
     @Override
     public void stdout(int i){
