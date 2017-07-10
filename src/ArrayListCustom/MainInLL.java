@@ -6,6 +6,8 @@ package ArrayListCustom;
 public class MainInLL {
     public static void main(String[] args){
 
-        LinkedListCustom <Integer> list = new LinkedListCustom();
+        LinkedListCustom <Integer> list = new LinkedListCustom<>();
+        list.add(10);
+        list.stdout();
     }
 }

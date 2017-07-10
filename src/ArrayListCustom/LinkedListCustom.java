@@ -17,22 +17,18 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
     }
     LinkedListCustom(Collection<? extends T> t){
         this();
-        this.add(t);
+        this.add((T) t);
     }
 
     @Override
     public void add(T t){
-        if(this.size == 0){
-            this.current = new Node<T>(t);
-            this.last = this.first = this.current;
-            this.current.data = t;
-        }else{
+        if(this.size != 0){
             this.last.next = new Node<T>(t);
+            this.last = this.last.next;
+        }else{
+            this.init(t);
         }
-    }
-
-    public void add(Collection<? extends T> t){
-        ;
+        this.size++;
     }
 
     @Override
@@ -55,8 +51,13 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
     }
 
     @Override
-    public void stdout(int i){
-        System.out.println();
+    public void stdout(){
+
+        this.current = this.first;
+        for(int i = 0; i < size; i++){
+            System.out.println(this.current.data);
+            this.current = this.current.next;
+        }
     }
 
     private static class Node<T>{
@@ -73,5 +74,15 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
             this.next = next;
             this.prev = prev;
         }
+    }
+
+    /*
+     * telecanal Private
+     */
+    private void init(T t){
+        this.current = new Node<T>(t);
+        this.current.data = t;
+        this.current.next = this.current.prev = null;
+        this.last = this.first = this.current;
     }
 }

@@ -7,5 +7,5 @@ public interface LinkedListCustomInterface<T> {
 
     public void add(T t);
     public boolean remove(T t);
-    public void stdout(int i);
+    public void stdout();
 }
