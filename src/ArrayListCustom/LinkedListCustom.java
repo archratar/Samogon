@@ -14,20 +14,29 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
 
     LinkedListCustom(){
         LinkedListCustom.size = 0;
+        this.current = new Node<T>();
+        this.first = this.last = this.current;
     }
     LinkedListCustom(Collection<? extends T> t){
         this();
         this.add((T) t);
     }
 
+    private Node<T> nodeIterator(){
+        this.current = this.first;
+
+        for(int i = 0; i < this.size && this.current != null; i++){
+            this.current = this.current.next;
+        }
+        return this.current;
+    }
+
     @Override
     public void add(T t){
-        if(this.size != 0){
-            this.last.next = new Node<T>(t);
-            this.last = this.last.next;
-        }else{
-            this.init(t);
-        }
+        this.current = nodeIterator();
+        System.out.println(this.current.data);
+        this.current.next = new Node<T>(t);
+        this.current.next.prev = this.current;
         this.size++;
     }
 
@@ -54,7 +63,7 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
     public void stdout(){
 
         this.current = this.first;
-        for(int i = 0; i < size; i++){
+        for(int i = 0; this.current != null; i++){
             System.out.println(this.current.data);
             this.current = this.current.next;
         }
@@ -66,6 +75,9 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
         LinkedListCustom.Node<T> prev;
         LinkedListCustom.Node<T> next;
 
+        Node(){
+
+        }
         Node(T data){
             this.data = data;
         }
@@ -76,13 +88,13 @@ public class LinkedListCustom<T> implements LinkedListCustomInterface<T> {
         }
     }
 
-    /*
-     * telecanal Private
-     */
-    private void init(T t){
-        this.current = new Node<T>(t);
-        this.current.data = t;
-        this.current.next = this.current.prev = null;
-        this.last = this.first = this.current;
-    }
+//    /*
+//     * telecanal Private
+//     */
+//    private void init(T t){
+//        this.current = new Node<T>(t);
+//        this.current.data = t;
+//        this.current.next = this.current.prev = null;
+//        this.last = this.first = this.current;
+//    }
 }
