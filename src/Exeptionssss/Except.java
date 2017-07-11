@@ -2,16 +2,14 @@ package Exeptionssss;
 
 import java.lang.*;
 
-import static com.oracle.jrockit.jfr.ContentType.Percentage;
-
 /**
  * Created by arch on 7/10/17.
  */
 public class Except {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         // arithmetic exception
-        int numerator = 1, denominator = 1;
+        int numerator = 1, denominator = 0;
         // array index out of bound
         int array[] = new int[1]; array[0] = 23;
         int index = 0;
