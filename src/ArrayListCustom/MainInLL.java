@@ -20,7 +20,7 @@ public class MainInLL {
             e.printStackTrace();
         }
 
-        LinkedL<Integer> list = new LinkedL<>(1);
+        LinkedList<Integer> list = new LinkedList<>(1);
         list.add(1);
     }
 }

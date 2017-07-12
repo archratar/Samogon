@@ -3,14 +3,14 @@ package ArrayListCustom;
 /**
  * Created by arch on 7/12/17.
  */
-public class LinkedL <T> implements LinkedL_I<T> {
+public class LinkedList<T> implements LinkedListPower<T> {
 
     private Node<T> head;
     private Node<T> tail;
     private int size = 0;
     private boolean wasInit = false;
 
-    public LinkedL(T t){
+    public LinkedList(T t){
         this.add(t);
         this.size++;
     }
