@@ -21,15 +21,19 @@ public class Except {
         boolean invalidArray = false;
         // invalid class cast
         boolean invalidCast = false;
-        // argument exception
-        boolean argumentInvalid = false;
 
         try {
+            // arithmetic
             dividebyzero(numerator, denominator);
+            // out of bound
             outOfBound(array, index);
+            // negative size
             int a[] = negativeArraySize(arraySize);
+            // null pointer
             nullPointer(wannaCatchNullPointer);
+            // invalid array
             invalidArr(invalidArray);
+            // invalid class cast
             invalidClassCast(invalidCast);
         } catch(ArithmeticException e){
             System.out.println("bad arithmetic operation" + e);
