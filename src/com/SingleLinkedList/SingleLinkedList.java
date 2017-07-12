@@ -25,13 +25,24 @@ public class SingleLinkedList<T> implements SingleLinkedListPower<T> {
 
             for (; ; ) {
                 if (pointer.next == null) {
-                    pointer.next = new Node<T>(value);
-                    pointer.next.value = value;
+                    Node<T> nextNode = new Node<T>(value);
+                    pointer.next = nextNode;
                     this.size++;
                     break;
                 } else {
                     pointer = pointer.next;
                 }
+            }
+        }
+    }
+
+    public void stdout(){
+        Node<T> pointer = this.head;
+
+        for(int i = 0; i < this.size; i++){
+            if(pointer != null){
+                System.out.print("[" + i + "]" + "(" + pointer.value + ")" + " ");
+                pointer = pointer.next == null ? null: pointer.next;
             }
         }
     }

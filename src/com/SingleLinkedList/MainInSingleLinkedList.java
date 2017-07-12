@@ -8,7 +8,11 @@ public class MainInSingleLinkedList {
 
         SingleLinkedList <Integer> list = new SingleLinkedList<>();
         Integer integer = new Integer(23);
-        list.add(integer);
-        list.add(integer++);
+
+        for(int i = 0; i < 10; i++)
+            list.add(integer+i);
+
+        list.stdout();
+
     }
 }
