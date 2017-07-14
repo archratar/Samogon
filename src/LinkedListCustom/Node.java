@@ -1,4 +1,4 @@
-package ArrayListCustom;
+package LinkedListCustom;
 
 /**
  * Created by arch on 7/12/17.
