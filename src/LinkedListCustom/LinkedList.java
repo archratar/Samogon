@@ -87,14 +87,41 @@ public class LinkedList<T> implements LinkedListPower<T>{
         }
     }
 
-    public T find (T value) {
+    public boolean exists(T value) {
         Node<T> pointer = this.head;
-        return findFrom(value, pointer).data;
+        return findRecursive(value, pointer) != null;
+//        return findIterative(value, pointer) != null;
     }
 
-    private Node<T> findFrom (T value, Node<T> pointer) {
+    public boolean exists (T value, boolean recursion) {
+        return recursion ? findRecursive(value) != null ? true: false: findIterative(value) != null ? true: false;
+    }
+
+    private T findRecursive(T value, Node<T> pointer) {
         return pointer == null ? null :
-                pointer.data == value ? pointer: findFrom(value, pointer.next);
+                pointer.data == value ? pointer.data: findRecursive(value, pointer.next);
+    }
+
+    private T findRecursive(T value) {
+        return this.findRecursive(value, this.head);
+    }
+
+    private T findIterative(T value, Node<T> pointer) {
+        for (int i = 0; i < this.size; i++) {
+            if (pointer != null) {
+                if (pointer.data == value) {
+                    return pointer.data;
+                } else {
+                    pointer = pointer.next;
+                }
+            }
+        }
+        return null;
+    }
+
+    // Override
+    private T findIterative(T value){
+        return this.findIterative(value, this.head);
     }
 
     private Node<T> findLast(T value){

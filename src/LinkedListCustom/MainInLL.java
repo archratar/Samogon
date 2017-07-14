@@ -15,7 +15,10 @@ public class MainInLL {
             list.add(index);
         }
 
-        System.out.println(list.find(1));
+        list.stdout();
+        System.out.println(list.exists(11,false));
+
+//        System.out.println(list.findIterative(13));
 
 //        list.remove(0);
 //        list.stdout();
