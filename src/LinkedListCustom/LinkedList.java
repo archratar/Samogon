@@ -87,7 +87,22 @@ public class LinkedList<T> implements LinkedListPower<T>{
         }
     }
 
-    private Node<T> find(T value){
+    public T find (T value) {
+        Node<T> pointer = this.head;
+        return findFrom(value, pointer).data;
+    }
+
+    private Node<T> findFrom (T value, Node<T> pointer) {
+        return pointer == null ? null :
+                pointer.data == value ? pointer: findFrom(value, pointer.next);
+    }
+
+    private Node<T> findLast(T value){
+        Node<T> pointer = this.head;
+
+        for (int i = 0; i < this.size; i++) {
+            pointer = pointer.data == value ? pointer : pointer.next;
+        }
 
         return null;
     }

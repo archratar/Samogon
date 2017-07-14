@@ -15,8 +15,10 @@ public class MainInLL {
             list.add(index);
         }
 
-        list.remove(0);
-        list.stdout();
-        System.out.println(list.size());
+        System.out.println(list.find(1));
+
+//        list.remove(0);
+//        list.stdout();
+//        System.out.println(list.size());
     }
 }
