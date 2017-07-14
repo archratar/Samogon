@@ -10,6 +10,7 @@ public class Node <T> {
     public Node<T> prev;
 
     public Node(T value){
+
         this.data = value;
     }
 }
