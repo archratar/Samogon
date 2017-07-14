@@ -15,6 +15,9 @@ public class LinkedList<T> implements LinkedListPower<T> {
         this.size++;
     }
 
+    public T get (){
+        return head.data;
+    }
     public void add(T t){
         if(! wasInit){
             this.head = new Node<T>(t);

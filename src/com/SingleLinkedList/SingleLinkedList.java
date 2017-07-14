@@ -45,10 +45,10 @@ public class SingleLinkedList<T> implements SingleLinkedListPower<T> {
                 pointer = pointer.next == null ? null: pointer.next;
             }
         }
+        System.out.println("");
     }
 
     public void remove(T value) {
-
     }
 
     public int size() {

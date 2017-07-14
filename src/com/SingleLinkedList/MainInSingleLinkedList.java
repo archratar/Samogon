@@ -6,13 +6,18 @@ package com.SingleLinkedList;
 public class MainInSingleLinkedList {
     public static void main(String[] args){
 
-        SingleLinkedList <Integer> list = new SingleLinkedList<>();
+        SingleLinkedList <Integer> intList = new SingleLinkedList<>();
         Integer integer = new Integer(23);
 
-        for(int i = 0; i < 10; i++)
-            list.add(integer+i);
+        SingleLinkedList <Float> floatList = new SingleLinkedList<>();
+        Float fload  = new Float(23.1f);
 
-        list.stdout();
+        for(int i = 0; i < 10; i++){
+            intList.add(integer+i);
+            floatList.add(fload+i);
+        }
 
+        intList.stdout();
+        floatList.stdout();
     }
 }
