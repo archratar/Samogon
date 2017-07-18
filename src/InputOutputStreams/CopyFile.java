@@ -18,19 +18,11 @@ public class CopyFile {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-            if (out != null) {
-                try {
-                    out.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+            try {
+                in.close();
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
