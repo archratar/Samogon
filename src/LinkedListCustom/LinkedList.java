@@ -105,7 +105,7 @@ public class LinkedList<T> implements LinkedListPower<T>{
     }
 
     public boolean exists (T value, boolean recursive) {
-        return recursive ? findRecursive(value) != null ? true: false: findIterative(value) != null ? true: false;
+        return recursive ? findRecursive(value) != null : findIterative(value) != null;
     }
 
     private T findRecursive(T value, Node<T> pointer) {
