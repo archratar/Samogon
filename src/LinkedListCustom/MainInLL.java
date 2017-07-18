@@ -17,6 +17,13 @@ public class MainInLL {
 
         list.stdout();
         System.out.println(list.exists(11,false));
+        System.out.println(list.size());
+        Integer [] fl = new Integer[list.size()];
+        list.toArray(fl);
+
+        for (Integer i : fl) {
+            System.out.print(i + ", ");
+        }
 
 //        System.out.println(list.findIterative(13));
 

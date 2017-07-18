@@ -66,6 +66,17 @@ public class LinkedList<T> implements LinkedListPower<T>{
         return this.size;
     }
 
+    public void toArray(T [] array) {
+//        T [] array = (T[])new Object[this.size];
+        Node<T> pointer = this.head;
+        for (int i = 0; i < this.size; i ++) {
+            if (pointer != null && pointer.data != null) {
+                array[i] = pointer.data;
+                pointer = pointer.next;
+            }
+        }
+    }
+
     // !_
     public void addAll (T[] array) {
         for (int i = 0; i < array.length; i++) {
@@ -93,8 +104,8 @@ public class LinkedList<T> implements LinkedListPower<T>{
 //        return findIterative(value, pointer) != null;
     }
 
-    public boolean exists (T value, boolean recursion) {
-        return recursion ? findRecursive(value) != null ? true: false: findIterative(value) != null ? true: false;
+    public boolean exists (T value, boolean recursive) {
+        return recursive ? findRecursive(value) != null ? true: false: findIterative(value) != null ? true: false;
     }
 
     private T findRecursive(T value, Node<T> pointer) {
