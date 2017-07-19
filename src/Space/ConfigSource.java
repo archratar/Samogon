@@ -5,5 +5,6 @@ import java.io.IOException;
 
 public interface ConfigSource {
 
-    public boolean read(String file);
+    public void greetings();
+    public String hello();
 }
