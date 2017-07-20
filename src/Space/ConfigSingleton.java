@@ -40,15 +40,15 @@ public class ConfigSingleton {
     }
 
     // return '!' or ''
-    public String stringSpain() {
+    protected String exclamation() {
         return exclamation;
     }
     // return true or false
-    public boolean isSpain() {
+    protected boolean getIfSpain() {
         return isSpain;
     }
     // return length
-    public int getLength() {
+    protected int getLength() {
         return length;
     }
 }

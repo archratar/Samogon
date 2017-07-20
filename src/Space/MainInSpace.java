@@ -3,11 +3,12 @@ package Space;
 public class MainInSpace {
     public static void main(String[] args) {
 
-        ConfigSource config = new ConfigFileReader("input.txt");
+        ConfigSingleton config = ConfigSingleton.getInstance();
 
-        System.out.println(config.getGreetings() + " " + config.getLength());
+        int length = config.getLength();
+        boolean isSpain = config.getIfSpain();
+        String stringExclamation = config.exclamation();
 
-        System.out.println(ConfigSingleton.getInstance());
 //        Singletone.test();
    }
 }
