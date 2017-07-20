@@ -17,14 +17,15 @@ public class ConfigSingleton {
         initConfig(config);
     }
 
+    // return '!' or ''
     public String stringSpain() {
         return exclamation;
     }
-
+    // return true or false
     public boolean isSpain() {
         return isSpain;
     }
-
+    // return length
     public int getLength() {
         return length;
     }
