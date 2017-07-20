@@ -2,7 +2,7 @@ package Space;
 
 import java.io.FileInputStream;
 
-public class ConfigReader implements ConfigSource {
+public class ConfigFileReader implements ConfigSource {
 
     private static String fileName = null;
     private static boolean initialized = false;
@@ -10,7 +10,8 @@ public class ConfigReader implements ConfigSource {
     private static String greetings = null;
     private static int length = 0;
 
-    public ConfigReader (String file) {
+    public ConfigFileReader(String file) {
+
 
         if (! this.initialized) {
             this.fileName = file;
@@ -18,23 +19,36 @@ public class ConfigReader implements ConfigSource {
         }
     }
 
+    public boolean isSpain() {
+        return this.isSpain;
+    }
+
     public void greetings() {
         System.out.println(hello());
     }
 
     public String hello() {
-        if(this.initialized) {
-            return this.greetings;
-        } else {
-            this.init();
-            return this.greetings;
-        }
+        return this.greetings;
+    }
+
+    @Override
+    public int getLength() {
+        return this.length;
+    }
+
+    @Override
+    public String getGreetings() {
+        return this.greetings;
     }
 
     private void init() {
 
-        this.isSpain = parserCountry(this.read());
+        char[][] input = this.read();
+
+        this.isSpain = parserCountry(input);
         this.greetings = this.isSpain ? "!Hello World!": "Hello World!";
+
+        this.length = parserLength(input);
         this.initialized = true;
     }
 
@@ -71,7 +85,6 @@ public class ConfigReader implements ConfigSource {
         boolean firstLine = true;
         char[] truth = {'t', 'r', 'u', 'e', '\n'};
         int isTruth = 1;
-        char[] length = new char[4];
 
         for(i = 0; truth[i] != '\n'; i++) {
             if (data[0][i] == truth[i]) {
@@ -80,5 +93,32 @@ public class ConfigReader implements ConfigSource {
         }
 
         return this.isSpain = isTruth == truth.length;
+    }
+
+    private int parserLength(char[][] data) {
+
+        int maxSize = 7;
+        int size = 0;
+        char[] normas = new char[maxSize];
+        for(int i = 0, j = 0; data[1][i] != '\n'; i++) {
+
+            if (maxSize <= i) {
+                break;
+            }
+            if (data[1][i] < '0' || data[1][i] > '9') {
+                continue;
+            } else {
+                normas[j++] = data[1][i];
+                size++;
+            }
+        }
+        char[] tmp = new char[size];
+
+        for (int i = 0; i < tmp.length; i++) {
+            tmp[i] = normas[i];
+        }
+
+        String parse = new String(tmp);
+        return Integer.parseInt(parse);
     }
 }

@@ -3,8 +3,10 @@ package Space;
 public class MainInSpace {
     public static void main(String[] args) {
 
-        ConfigSource config = new ConfigReader("input.txt");
+        ConfigSource config = new ConfigFileReader("input.txt");
 
-        config.greetings();
+        System.out.println(config.getGreetings() + " " + config.getLength());
+
+//        Singletone.test();
    }
 }
