@@ -1,25 +1,42 @@
 package Space;
 
-
-
 public class ConfigSingleton {
 
     private static ConfigSingleton instance;
-    private static ConfigFileReader config;
     private static boolean init = false;
+
+    private static ConfigFileReader config;
+    private static String file = "input.txt";
 
     private static String exclamation;
     private static boolean isSpain = false;
 
     private static int length;
 
-    private ConfigSingleton(String file) {
+    private ConfigSingleton(String excl, int len) {
+        exclamation = new String(excl);
+        length = len;
+    }
+
+    public static ConfigSingleton getInstance() {
+
         if (instance != null) {
+            return instance;
         } else {
-            ConfigFileReader config = new ConfigFileReader(file);
+            config = new ConfigFileReader(file);
             initConfig(config);
-            instance = new ConfigSingleton(file);
+
+            instance = new ConfigSingleton(exclamation, length);
+
+            return instance;
         }
+    }
+
+    private static void initConfig(ConfigFileReader config) {
+        isSpain = config.isSpain();
+        exclamation = isSpain ? "!" : "";
+        length = config.getLength();
+        init = true;
     }
 
     // return '!' or ''
@@ -33,12 +50,5 @@ public class ConfigSingleton {
     // return length
     public int getLength() {
         return length;
-    }
-
-    private void initConfig(ConfigFileReader config) {
-        isSpain = config.isSpain();
-        exclamation = isSpain ? "!" : "";
-        length = config.getLength();
-        init = true;
     }
 }

@@ -7,6 +7,7 @@ public class MainInSpace {
 
         System.out.println(config.getGreetings() + " " + config.getLength());
 
+        System.out.println(ConfigSingleton.getInstance());
 //        Singletone.test();
    }
 }
