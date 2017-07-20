@@ -3,10 +3,11 @@ package Space;
 public class ConfigSingleton {
 
     private static ConfigSingleton instance;
-    private static boolean init = false;
 
     private static ConfigFileReader config;
+    private static ConfigValues configValues;
     private static String file = "input.txt";
+    private static boolean init = false;
 
     private static String exclamation;
     private static boolean isSpain = false;
@@ -14,6 +15,7 @@ public class ConfigSingleton {
     private static int length;
 
     private ConfigSingleton(String excl, int len) {
+        configValues = new ConfigValues(excl, len);
         exclamation = new String(excl);
         length = len;
     }
@@ -43,12 +45,24 @@ public class ConfigSingleton {
     protected String exclamation() {
         return exclamation;
     }
+
     // return true or false
     protected boolean getIfSpain() {
         return isSpain;
     }
+
     // return length
     protected int getLength() {
         return length;
+    }
+
+    private class ConfigValues{
+        String exclamation;
+        int length;
+
+        ConfigValues(String exclamation, int length) {
+            this.exclamation = exclamation;
+            this.length = length;
+        }
     }
 }

@@ -9,6 +9,6 @@ public class MainInSpace {
         boolean isSpain = config.getIfSpain();
         String stringExclamation = config.exclamation();
 
-//        Singletone.test();
+        System.out.println("length is " + length + " is Spane = " + isSpain);
    }
 }
