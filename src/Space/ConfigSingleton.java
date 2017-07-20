@@ -5,6 +5,7 @@ package Space;
 public class ConfigSingleton {
 
     private static ConfigSingleton instance;
+    private static ConfigFileReader config;
     private static boolean init = false;
 
     private static String exclamation;
@@ -13,8 +14,12 @@ public class ConfigSingleton {
     private static int length;
 
     private ConfigSingleton(String file) {
-        ConfigFileReader config = new ConfigFileReader(file);
-        initConfig(config);
+        if (instance != null) {
+        } else {
+            ConfigFileReader config = new ConfigFileReader(file);
+            initConfig(config);
+            instance = new ConfigSingleton(file);
+        }
     }
 
     // return '!' or ''
