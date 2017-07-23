@@ -1,4 +1,4 @@
-package Exeptionssss;
+package Exeptions;
 
 import java.lang.*;
 
