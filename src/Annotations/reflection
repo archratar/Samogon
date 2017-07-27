@@ -1,0 +1,26 @@
+        Class cl = Class.forName("Annotations.Cookies");
+
+        if (cl.isAnnotationPresent(ControlledObject.class)) {
+            System.out.println(cl.getAnnotation(ControlledObject.class));
+        }
+        System.out.println(cl.getMethod("createCookies").getDefaultValue());
+        System.out.println(cl.getMethod("createCookies").getAnnotation(StartObject.class));
+
+        Class cls = Class.forName("Annotations.Miner");
+        String str = cls.getDeclaredField("position").getAnnotation(Position.class).value();
+        cls.getDeclaredField("position").getAnnotation(Position.class).value();
+        System.out.println(cls.getDeclaredField("position").getAnnotation(Position.class).value());
+
+        Miner.MinerBuilder builder = new Miner.MinerBuilder();
+        Miner miner = builder.setPosition("prapor").build();
+
+        Miner miner = new Miner.MinerBuilder().setPosition("prapor").build();
+        Spaklyovschik spakl = new Spaklyovschik();
+
+
+        cl = Class.forName("Annotations.Spaklyovschik");
+        field = cl.getDeclaredField("position");
+        value = field.getAnnotation(Position.class).value();
+        field.set(spakl, value);
+        System.out.println(spakl.position);
+        System.out.println(miner.position);
